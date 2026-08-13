@@ -1,0 +1,240 @@
+.root {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.qHead {
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
+}
+
+.qTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+}
+
+.nm {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--dsw-alias-label-primary);
+  font-weight: 700;
+}
+
+.cd {
+  color: var(--dsw-alias-label-caption);
+  font: 9px/1 ui-monospace, monospace;
+  white-space: nowrap;
+}
+
+.pin {
+  margin-left: auto;
+  color: var(--dsw-alias-label-caption);
+}
+
+.qPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.big {
+  color: var(--dsw-alias-state-success-primary);
+  font: 700 22px/1 ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.delta {
+  display: grid;
+  color: var(--dsw-alias-state-success-primary);
+  font: 9px/1.35 ui-monospace, monospace;
+}
+
+.qPrice.down .big,
+.qPrice.down .delta {
+  color: var(--dsw-alias-state-error-primary);
+}
+
+.qTags {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.tagHot {
+  padding: 1px 4px;
+  border: 1px solid var(--dsw-alias-state-success-primary);
+  color: var(--dsw-alias-state-success-primary);
+  font: 8px/1.2 ui-monospace, monospace;
+}
+
+.tag {
+  padding: 1px 4px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  color: var(--dsw-alias-label-tertiary);
+  font: 8px/1.2 ui-monospace, monospace;
+}
+
+.sector {
+  margin-left: auto;
+  color: var(--dsw-alias-state-warn-primary);
+  font-size: 8.5px;
+}
+
+.qGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
+  font-size: 9px;
+}
+
+.cell {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.k {
+  color: var(--dsw-alias-label-caption);
+}
+
+.v {
+  color: var(--dsw-alias-label-primary);
+}
+
+.up {
+  color: var(--dsw-alias-state-success-primary);
+}
+
+.down {
+  color: var(--dsw-alias-state-error-primary);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
+}
+
+.tab {
+  flex: 1;
+  min-height: 30px;
+  padding: 0 4px;
+  border-bottom: 2px solid transparent;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.tab.active {
+  border-bottom-color: var(--dsw-alias-state-success-primary);
+  color: var(--dsw-alias-label-primary);
+}
+
+.book {
+  padding: 5px 0;
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 52px 44px;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 10px;
+  font-size: 9px;
+}
+
+.bar {
+  position: absolute;
+  inset: 2px 0 2px auto;
+  opacity: 0.14;
+  pointer-events: none;
+  background: var(--dsw-alias-state-error-primary);
+}
+
+.row.buy .bar {
+  background: var(--dsw-alias-state-success-primary);
+}
+
+.row.activeRow {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.lv {
+  color: var(--dsw-alias-label-caption);
+}
+
+.title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.pr,
+.qt {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.qt {
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.tape {
+  border-top: 1px solid var(--dsw-alias-border-l1);
+}
+
+.tapeHead {
+  min-height: 29px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: var(--dsw-alias-label-primary);
+  font-size: 9.5px;
+}
+
+.tapeCols,
+.tapeRow {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 52px 16px;
+  gap: 6px;
+  padding: 2px 10px;
+  font-size: 8.5px;
+}
+
+.tapeCols {
+  color: var(--dsw-alias-label-caption);
+}
+
+.tm {
+  color: var(--dsw-alias-label-caption);
+}
+
+.pr,
+.qt {
+  text-align: right;
+}
+
+.bs {
+  text-align: center;
+  font-weight: 700;
+}
+
+.empty {
+  padding: 14px 10px;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 10px;
+  text-align: center;
+}

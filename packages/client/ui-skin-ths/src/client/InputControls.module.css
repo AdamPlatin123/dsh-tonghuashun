@@ -1,0 +1,63 @@
+/* 输入框左右终端控件（conversation.input.left / conversation.input.right）。 */
+
+.left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.market {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-interactive-bg-hover-accent);
+  color: var(--dsw-alias-state-success-primary);
+  font: 600 10px/1 ui-monospace, monospace;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.market:hover {
+  background: var(--dsw-alias-interactive-bg-hover-accent);
+  border-color: var(--dsw-alias-state-success-primary);
+}
+
+.market:active {
+  background: var(--dsw-alias-interactive-bg-active);
+}
+
+.term {
+  padding: 1px 5px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  color: var(--dsw-alias-label-tertiary);
+  font: 8px/1.2 ui-monospace, monospace;
+  letter-spacing: 0.8px;
+}
+
+.right {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--dsw-alias-label-tertiary);
+  font: 8.5px/1.2 ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat b {
+  color: var(--dsw-alias-label-primary);
+  font-weight: 700;
+}
+
+.stat b.up {
+  color: var(--dsw-alias-state-success-primary);
+}

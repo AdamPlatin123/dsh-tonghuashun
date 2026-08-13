@@ -1,0 +1,26 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.button:hover {
+  border-color: var(--dsw-alias-state-success-primary);
+  color: var(--dsw-alias-label-primary);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--dsw-alias-state-success-primary);
+}
+
+.label {
+  color: var(--dsw-alias-label-tertiary);
+}

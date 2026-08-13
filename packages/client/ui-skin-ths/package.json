@@ -1,0 +1,52 @@
+{
+  "name": "@deepseek-ai/dsh-client-ui-skin-ths",
+  "version": "0.0.1",
+  "description": "同花顺终端风格皮肤：红涨绿跌令牌、终端化富 CSS 与设置选择行",
+  "type": "module",
+  "files": [
+    "lib",
+    "src",
+    "lib/index.js",
+    "lib/client.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-client-locale": "workspace:^",
+    "@deepseek-ai/dsh-client-runtime": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-conversation": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-theme": "workspace:^",
+    "clsx": "^2.0.0",
+    "@types/react": "~18.3.1",
+    "cordis": "^4.0.0-rc.7",
+    "react": "^18.2.0",
+    "@deepseek-ai/dsh-client-ui-layout": "workspace:^",
+    "@deepseek-ai/dsh-client-ui-sidebar": "workspace:^"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
+    "react-dom": "^18.2.0"
+  },
+  "dshClient": {
+    "inject": [
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-theme"
+    ],
+    "platform": "web",
+    "immediately": true
+  }
+}

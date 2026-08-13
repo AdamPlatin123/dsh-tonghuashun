@@ -1,0 +1,298 @@
+/* 终端风格消息流（conversation.chat.panel occupant）：对齐 demopage 气泡式 chat-flow。 */
+
+.root {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-label-secondary);
+  font: 11px/1.5 ui-monospace, monospace;
+}
+
+/* 在外层 `[data-conversation-scroll]` 滚动容器内（活跃会话列，见
+   ConversationRoot）：放弃自己的滚动所有权，作为 flow 内容自然撑开，
+   由宿主单一滚动轴滚动 —— 与原生 ChatView 同契约（height 100% 在没有
+   确定高度的父级下会按全文展开，把输入卡推到数千像素之外）。 */
+:global([data-conversation-scroll]) .root {
+  height: auto;
+  min-height: auto;
+}
+
+/* 滚动容器：wrap 提供定位上下文（右下角跳底按钮）。 */
+.scrollWrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* 外层滚动容器内：inner scroller 不再拥有滚动，跟着宿主滚（与 ChatView
+   `.scroll` 的 `overflow: visible` 同契约）。 */
+:global([data-conversation-scroll]) .scrollWrap {
+  flex: none;
+  min-height: auto;
+}
+
+:global([data-conversation-scroll]) .scroll {
+  flex: none;
+  min-height: auto;
+  overflow: visible;
+}
+
+/* demopage .chat-flow：max-width 居中的气泡流。 */
+.chatFlow {
+  width: min(820px, 100%);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 18px 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 空态：会话尚无任何真实记录。 */
+.empty {
+  padding: 30px 12px;
+  color: var(--dsw-alias-label-dimmed);
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0.4px;
+}
+
+/* 空态终端提示符（绿点 = 终端提示约定，非语义色）。 */
+.prompt {
+  color: var(--dsw-alias-state-error-primary);
+}
+
+/* 消息块（user / assistant）：demopage .message。 */
+.message {
+  padding: 8px 0 12px;
+}
+
+.messageMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  color: var(--dsw-alias-label-tertiary);
+  font: 9px/1 ui-monospace, monospace;
+}
+
+.messageRole {
+  color: var(--dsw-alias-label-primary);
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
+.messageTime {
+  color: var(--dsw-alias-label-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 进行中 assistant 的脉冲点（demopage feed/pulse 绿，error-secondary 同色光晕）。 */
+.liveDot {
+  width: 5px;
+  height: 5px;
+  background: var(--dsw-alias-state-error-secondary);
+  box-shadow: 0 0 5px rgba(53, 223, 149, 0.65);
+}
+
+.messageCopy {
+  color: var(--dsw-alias-label-primary);
+  font-size: 12px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* user：右对齐气泡（demopage .user-message .message-copy）。 */
+.message[data-kind='user'] .messageCopy {
+  margin-left: auto;
+  width: min(680px, 92%);
+  padding: 8px 10px;
+  background: #141e2c; /* demopage 用户气泡底色 */
+  border: 1px solid var(--dsw-alias-border-l1);
+}
+
+/* assistant：顶部细分隔线（demopage .assistant-message）。 */
+.message[data-kind='assistant'] {
+  border-top: 1px solid var(--dsw-alias-border-l1);
+}
+
+/* 思考披露（demopage .think-disclosure：紫左边条 + 紫调底）。 */
+.thinkDisclosure {
+  margin: 7px 0 5px;
+  padding: 5px 8px;
+  border-left: 2px solid #79558f; /* demopage 思考紫 */
+  background: rgba(199, 146, 234, 0.055);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 10.5px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 步骤行（demopage .step：时间 + 标签 + 摘要 + 状态 四列 grid）。 */
+.step {
+  min-height: 30px;
+  display: grid;
+  grid-template-columns: 50px 62px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 7px;
+  margin-top: 3px;
+  border: 1px solid transparent;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.step:hover {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: var(--dsw-alias-border-l1);
+}
+
+.stepTs {
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* demopage 标签类型色（装饰色，契约允许硬编码）。 */
+.tag[data-kind='think'] { color: #c792ea; }
+.tag[data-kind='read'] { color: #79b8ff; }
+.tag[data-kind='bash'] { color: #f0a45c; }
+.tag[data-kind='skill'] { color: #53d7c2; }
+.tag[data-kind='tool'] { color: #dfbd58; }
+.tag[data-kind='context'] { color: var(--dsw-alias-label-secondary); }
+.tag[data-kind='error'] { color: var(--dsw-alias-state-error-primary); }
+.tag[data-kind='unknown'] { color: var(--dsw-alias-label-dimmed); }
+
+.stepBody {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 路径/命令高亮（demopage .step .hl/.path 蓝调）。 */
+.stepPath,
+.stepHl {
+  color: #a9c9ff;
+  background: rgba(121, 184, 255, 0.08);
+  padding: 0 3px;
+  font: 10px/1.4 ui-monospace, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stepPreview {
+  min-width: 0;
+  color: var(--dsw-alias-label-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stepResult {
+  font: 9px/1 ui-monospace, monospace;
+  white-space: nowrap;
+}
+
+/* 红涨绿跌：成功为红、失败为绿；RUN 中性灰。 */
+.stepResult[data-state='ok'] { color: var(--dsw-alias-state-success-primary); }
+.stepResult[data-state='fail'] { color: var(--dsw-alias-state-error-primary); }
+.stepResult[data-state='run'] { color: var(--dsw-alias-label-tertiary); }
+
+/* 工具错误码（红涨绿跌语义：失败为绿）。 */
+.toolErr {
+  color: var(--dsw-alias-state-error-primary);
+  font-size: 9px;
+}
+
+/* context 长注入折叠：summary 为一行步骤，点击展开全文。 */
+.stepFold {
+  margin-top: 3px;
+}
+
+.stepFold > summary.step {
+  cursor: pointer;
+  list-style: none;
+}
+
+.stepFold > summary.step::-webkit-details-marker {
+  display: none;
+}
+
+.stepFoldText {
+  margin: 2px 7px 4px 65px;
+  padding: 6px 8px;
+  border-left: 2px solid var(--dsw-alias-border-l2);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 10px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* assistant 推理统计尾（demopage .assistant-final：dashed 分隔线）。 */
+.assistantFinal {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #29354a; /* demopage 虚线色 */
+  color: var(--dsw-alias-label-secondary);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--dsw-alias-label-dimmed);
+}
+
+/* 新内容到达且未钉在底部时出现的跳底按钮（覆盖在滚动区右下角）。 */
+.jump {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  z-index: 1;
+  padding: 2px 10px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-secondary);
+  font: 9px/1.6 ui-monospace, monospace;
+  cursor: pointer;
+}
+
+.jump:hover {
+  border-color: var(--dsw-alias-state-success-primary);
+  color: var(--dsw-alias-label-primary);
+}
+
+/* 跟随滚动时的贴底微过渡尊重系统减少动效偏好。 */
+@media (prefers-reduced-motion: reduce) {
+  .step,
+  .messageCopy {
+    transition: none;
+  }
+}
