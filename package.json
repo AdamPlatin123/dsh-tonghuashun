@@ -1,0 +1,74 @@
+{
+  "name": "dsh-tonghuashun",
+  "version": "0.3.4",
+  "description": "DeepSeek Harness project activity terminal skin and durable metrics",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/client.js",
+    "dist/styles.css",
+    "dist/THIRD_PARTY_NOTICES.txt",
+    "cordis.patch.yml",
+    "dsh-plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "external": [
+        "react"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/preview-server.mjs",
+    "check": "npm test && npm run build"
+  },
+  "dependencies": {
+    "diff": "^8.0.2",
+    "lightweight-charts": "^5.0.8",
+    "lucide-react": "^0.468.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "@deepseek-ai/cordis": "^4.0.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@playwright/test": "^1.55.0"
+  }
+}

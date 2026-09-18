@@ -1,0 +1,152 @@
+.ths-market,.ths-ticker,.ths-preview{--ths-bg:#11151c;--ths-panel:#161c24;--ths-border:#2b323d;--ths-muted:#8f99a9;--ths-text:#e1e6ee;--ths-up:#f05a62;--ths-down:#28d981;box-sizing:border-box;font-family:"Segoe UI","Microsoft YaHei",sans-serif;letter-spacing:0;color:var(--ths-text)}
+.ths-market *,.ths-preview *{box-sizing:border-box;letter-spacing:0}
+.ths-market button,.ths-market select,.ths-preview button,.ths-preview select{font:inherit;color:inherit}
+.ths-market button,.ths-preview button{cursor:pointer}
+.ths-market button:disabled,.ths-preview button:disabled{opacity:.4;cursor:default}
+.ths-market button:focus-visible,.ths-market select:focus-visible,.ths-preview button:focus-visible{outline:2px solid #f4c766;outline-offset:2px}
+.ths-market{width:100%;min-width:0;background:var(--ths-bg);font-size:12px;border-top:1px solid var(--ths-border);position:relative}
+.ths-market-title{height:35px;display:flex;align-items:center;gap:10px;padding:0 12px;border-bottom:1px solid var(--ths-border);background:#191f29}
+.ths-market-title>div{display:flex;gap:8px;align-items:center;min-width:0;flex:1}
+.ths-market-title strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:320px;font-size:12px}
+.ths-symbol{color:var(--ths-muted);font-size:10px;white-space:nowrap}
+.ths-live{display:flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ths-muted);font-size:10px}
+.ths-online,.ths-offline{display:inline-block;width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--ths-down)}
+.ths-offline{background:#e6a548}
+.ths-market-grid{display:grid;grid-template-columns:minmax(0,1fr) 246px;min-width:0}
+.ths-chart-column{min-width:0;display:flex;flex-direction:column}
+.ths-toolbar{display:flex;align-items:center;gap:5px;padding:5px 9px;min-height:38px;border-bottom:1px solid var(--ths-border);flex-wrap:wrap}
+.ths-periods{display:flex;gap:3px;flex:none}
+.ths-periods button{border:0;background:transparent;border-radius:3px;font-size:11px;padding:4px 9px;height:25px;color:var(--ths-muted)}
+.ths-periods button[aria-selected=true]{background:#d93846;color:white}
+.ths-scale{display:flex;gap:3px;flex:none}
+.ths-scale button{border:0;background:transparent;border-radius:3px;font-size:11px;padding:4px 8px;height:25px;color:var(--ths-muted)}
+.ths-scale button[aria-selected=true]{background:#3d4757;color:white}
+.ths-drift-tag{color:#aab3c2;border:1px solid #4a5464;border-radius:3px;padding:0 5px;font-size:9px;height:15px;display:inline-flex;align-items:center}
+.ths-drift{background:#7b8494}
+/* 空心 = 未归属：图例用空心方框，与蜡烛柱体的空/满口径一致。 */
+.ths-hollow{width:11px;height:9px;border:1px solid #7b8494;background:transparent}
+.ths-toolbar select{border:0;background:#1c2430;font-size:11px;padding:4px 5px;max-width:110px;border-radius:3px}
+.ths-toolbar-spacer{flex:1}
+.ths-icon{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;min-width:27px;padding:0;border:0;border-radius:3px;background:transparent;color:var(--ths-muted);flex-shrink:0}
+.ths-icon:hover{background:#303846;color:#fff}
+.ths-ma-toggle{display:flex;gap:3px;align-items:center;font-size:10px;color:#e8c766}
+.ths-ma-toggle input{width:11px;height:11px;accent-color:#d93846;margin:0}
+.ths-agent-only{color:#aab3c2}
+.ths-ohlc{display:flex;gap:13px;align-items:center;min-height:28px;padding:6px 12px;color:var(--ths-muted);font:10px Consolas,monospace;flex-wrap:wrap}
+.ths-ohlc b{font-weight:400;color:var(--ths-text)}
+.ths-chart-stage{height:360px;position:relative;min-height:180px;flex:1}
+.ths-chart{height:100%;width:100%;position:absolute;inset:0}
+.ths-chart-footer{display:flex;align-items:center;gap:15px;min-height:27px;flex-wrap:wrap;padding:5px 12px;border-top:1px solid var(--ths-border);color:var(--ths-muted);font-size:10px}
+.ths-chart-footer>span{display:inline-flex;align-items:center;gap:5px}
+.ths-chart-footer i{width:12px;height:2px;display:inline-block}
+.ths-ma5{background:#e8c766}.ths-ma10{background:#ac8be8}
+.ths-up{color:var(--ths-up)!important}.ths-down{color:var(--ths-down)!important}
+.ths-empty{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;flex-direction:column;gap:10px;pointer-events:none;color:var(--ths-muted);font-size:12px}
+.ths-empty strong{font-size:13px;font-weight:500}
+.ths-details{border-left:1px solid var(--ths-border);background:#151a23;min-width:0;display:flex;flex-direction:column;max-height:480px}
+.ths-quote{padding:15px 14px 10px}
+.ths-quote>span{font-size:11px;color:var(--ths-muted)}
+.ths-quote>strong{font:700 29px Consolas,monospace;display:block;margin:7px 0}
+.ths-quote>div{display:flex;align-items:center;gap:12px;font:11px Consolas,monospace}
+.ths-quote>div>span:last-child{font:10px "Microsoft YaHei",sans-serif;color:var(--ths-muted);margin-left:auto}
+.ths-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 13px;margin:0;padding:7px 14px 14px;border-bottom:1px solid var(--ths-border)}
+.ths-stat-grid>div{display:flex;justify-content:space-between;gap:5px;min-width:0}
+.ths-stat-grid dt{color:var(--ths-muted);font-size:10px;white-space:nowrap}.ths-stat-grid dd{font:10px Consolas,monospace;margin:0;overflow-wrap:anywhere}
+.ths-detail-tabs{display:flex;height:34px;border-bottom:1px solid var(--ths-border);flex-shrink:0}
+.ths-detail-tabs button{flex:1;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--ths-muted);font-size:11px}
+.ths-detail-tabs button[aria-selected=true]{border-bottom-color:var(--ths-up);color:white}
+.ths-trades{overflow:auto;flex:1;min-height:100px;padding:0 13px;scrollbar-width:thin;scrollbar-color:#39414e transparent}
+.ths-trade-head{display:flex;justify-content:space-between;color:var(--ths-muted);font-size:10px;padding:9px 0 5px}
+.ths-trade{display:flex;align-items:center;gap:8px;justify-content:space-between;border-bottom:1px solid #202733;padding:7px 0;min-height:41px}
+.ths-trade>div{display:flex;flex-direction:column;gap:3px;min-width:0}.ths-trade time{font:10px Consolas,monospace;color:var(--ths-muted)}
+.ths-trade>div>span{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:135px}
+.ths-trade>b{font:12px Consolas,monospace;text-align:right;white-space:nowrap}
+.ths-trade small{display:block;color:var(--ths-muted);font:9px Consolas,monospace;margin-top:3px}
+.ths-detail-actions{margin-top:auto;border-top:1px solid var(--ths-border);min-height:30px;display:flex;align-items:center;padding:0 10px;gap:4px}
+.ths-detail-actions>span{margin-left:auto;font-size:10px;color:var(--ths-muted)}
+.ths-token-ledger{padding:13px;overflow:auto;flex:1;min-height:100px}
+.ths-token-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px}
+.ths-token-total strong{font:18px Consolas,monospace;color:#e8c766}
+.ths-token-ledger dl{margin:0}.ths-token-ledger dl>div{display:flex;justify-content:space-between;font-size:11px;padding:6px 0}
+.ths-token-ledger dt{color:var(--ths-muted)}.ths-token-ledger dd{margin:0;font-family:Consolas,monospace}
+.ths-token-count,.ths-token-ledger p{font-size:10px;color:var(--ths-muted);line-height:1.6}
+.ths-no-rows{color:var(--ths-muted);font-size:11px;text-align:center;margin:24px 0}
+.ths-status-error{padding:8px 12px;font-size:11px;background:#36292a;color:#ffc1c1;display:flex;gap:10px;align-items:center}
+.ths-status-error button{background:transparent;border:0;text-decoration:underline}
+.ths-warnings{font-size:10px;color:#bfad83;padding:5px 12px;border-top:1px solid var(--ths-border);max-height:120px;overflow:auto}
+.ths-warnings summary{display:flex;align-items:center;gap:5px;cursor:pointer}.ths-warnings p{margin:5px 0;line-height:1.5}
+.ths-ticker{display:flex;align-items:center;gap:24px;font-size:11px;min-width:0}
+.ths-ticker[data-ths-compact="1"]{gap:10px}.ths-ticker[data-ths-compact="2"]{gap:14px}.ths-ticker[data-ths-compact="3"]{gap:18px}
+.ths-ticker>span{display:flex;gap:7px;align-items:center;white-space:nowrap}
+.ths-ticker small{font-size:9px;opacity:.75}.ths-ticker b{font:12px Consolas,monospace}
+.ths-ticker-brand{font-weight:600}.ths-ticker>i{margin-left:auto}
+/* 宿主 headerUtilities 不收缩，这里给插件自己的内容一个上限，避免把宿主标题挤到重叠。 */
+.ths-slot-header{max-width:42vw;min-width:0;display:flex;align-items:center;gap:8px}.ths-slot-header .ths-ticker{gap:12px;overflow:hidden}.ths-sidebar-toggle{color:#b8c1ce;cursor:pointer;flex:none}
+.ths-compact .ths-chart-stage{height:260px}.ths-compact .ths-details{max-height:390px}.ths-compact .ths-market-grid{grid-template-columns:minmax(0,1fr) 216px}
+.ths-skin-setting{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px;gap:15px;font-size:13px}.ths-skin-setting input{accent-color:#d93846}
+.ths-project-required{padding:10px;font-size:12px;color:#8f99a9}
+.ths-expanded{position:fixed;inset:45px 15px 20px;width:auto;z-index:1000;box-shadow:0 0 0 100vmax #0009;display:flex;flex-direction:column;border:1px solid var(--ths-border)}
+.ths-expanded .ths-market-grid{flex:1;min-height:0}.ths-expanded .ths-chart-stage{height:auto}.ths-expanded .ths-details{max-height:none}
+.ths-modal-backdrop{position:fixed;inset:0;z-index:1100;background:#000b;display:flex;align-items:center;justify-content:center;padding:20px}
+.ths-modal{background:#1d2430;border:1px solid #3e4858;border-radius:6px;padding:22px;width:390px;max-width:100%;box-shadow:0 16px 70px #0008}
+.ths-modal h3{font-size:16px;margin:0 0 14px}.ths-modal p{color:#aeb8c8;line-height:1.7;font-size:12px}
+.ths-modal>div{display:flex;gap:9px;justify-content:flex-end;margin-top:20px}.ths-modal button{padding:7px 13px;background:#333d4d;border:1px solid #465266;border-radius:4px}
+.ths-modal button.ths-danger{background:#b72a36;border-color:#cb3e49}
+.ths-market-sidebar{height:100%;min-height:0;min-width:0;overflow:auto;background:#11151c;border-left:1px solid #2b323d;scrollbar-width:thin;scrollbar-color:#39414e transparent}
+.ths-market-sidebar .ths-sidebar-market{border-top:0;min-height:100%}
+.ths-market-sidebar .ths-market-grid{display:flex;flex-direction:column}
+.ths-market-sidebar .ths-market-title{padding:0 8px;gap:6px;position:sticky;top:0;z-index:5}
+.ths-market-sidebar .ths-symbol{display:none}
+.ths-market-sidebar .ths-market-title strong{font-size:11px}
+.ths-market-sidebar .ths-toolbar{padding:6px 8px;gap:3px}
+.ths-market-sidebar .ths-periods{flex:1}
+.ths-market-sidebar .ths-periods button{padding:4px 7px}
+.ths-market-sidebar .ths-toolbar select{max-width:100px}
+.ths-market-sidebar .ths-toolbar>.ths-toolbar-spacer{flex-basis:100%;height:0}
+.ths-market-sidebar .ths-chart-stage{height:260px;min-height:260px;flex:none}
+.ths-market-sidebar .ths-ohlc{gap:6px 12px;padding:8px;font-size:10px}
+.ths-market-sidebar .ths-ohlc>span:first-child{flex-basis:100%}
+.ths-market-sidebar .ths-chart-footer{gap:8px;padding:6px 8px}
+.ths-market-sidebar .ths-details{border-left:0;border-top:1px solid #2b323d;max-height:none!important}
+.ths-market-sidebar .ths-quote{padding:10px 12px 8px}
+.ths-market-sidebar .ths-quote>strong{font-size:24px;margin:5px 0}
+.ths-market-sidebar .ths-stat-grid{padding:6px 12px 10px;gap:8px 16px}
+.ths-market-sidebar .ths-trades{max-height:240px;min-height:90px;flex:none}
+.ths-market-sidebar .ths-token-ledger{max-height:none;min-height:200px}
+.ths-market-sidebar .ths-status-error,.ths-market-sidebar .ths-warnings p{overflow-wrap:anywhere}
+.ths-market-drawer{position:fixed;inset:0 0 0 auto;margin:0;padding:0;border:0;width:360px;max-width:100%;height:100dvh;max-height:100dvh;background:#11151c;color:#e1e6ee;overflow:hidden}
+.ths-market-drawer::backdrop{background:#0008}
+.ths-market-drawer .ths-market-sidebar{width:100%}
+.ths-preview .ths-preview-with-market{grid-template-columns:194px minmax(0,1fr) 360px}
+.ths-preview-body-grid>.ths-market-sidebar{height:calc(100dvh - 70px);position:sticky;top:0}
+body.ths-preview-body{margin:0;background:#10141b;min-width:320px}
+.ths-preview{min-height:100vh;font-size:12px;background:#11151c}
+.ths-preview-top{height:42px;padding:0 18px;background:#bc242d;border-bottom:1px solid #d33e48;display:flex;align-items:center;gap:28px}
+.ths-preview-logo{font-size:14px;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.ths-preview-logo b{background:#fff;color:#ba2530;width:21px;height:21px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+.ths-preview-top .ths-ticker{flex:1}.ths-preview-top .ths-ticker .ths-down{color:#7fffb1!important}
+.ths-preview-top>a{margin-left:auto;color:#f6d4d6;font-size:11px;text-decoration:none;white-space:nowrap}
+.ths-preview-body-grid{display:grid;grid-template-columns:194px minmax(0,1fr);min-height:calc(100vh - 70px)}
+.ths-preview-sidebar{background:#161c25;border-right:1px solid #303742;display:flex;flex-direction:column;min-width:0}
+.ths-sidebar-brand{padding:17px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #2b323d}
+.ths-sidebar-brand svg{color:#e86a77}.ths-sidebar-brand b{display:block;font-size:13px}.ths-sidebar-brand span{display:block;font-size:10px;color:#8f99a9;margin-top:3px}
+.ths-preview-nav{padding:12px 0}.ths-preview-nav>div{display:flex;align-items:center;gap:12px;color:#939eae;padding:10px 16px;font-size:12px}.ths-preview-nav .active{background:#30202c;color:#fff;border-left:2px solid #f05a62;padding-left:14px}
+.ths-watch-title{padding:13px 14px 6px;border-top:1px solid #2b323d;display:flex;justify-content:space-between;font-size:11px;font-weight:600}
+.ths-watch-head{padding:5px 14px;display:flex;justify-content:space-between;font-size:9px;color:#758192}
+.ths-watch-row{background:#222940;border-left:2px solid #7a83ea;display:flex;justify-content:space-between;padding:12px;font-size:11px;gap:5px;align-items:center}.ths-watch-row>div{min-width:0}.ths-watch-row span{display:block;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ths-watch-row small{display:block;font:9px Consolas,monospace;color:#8793a5;margin-top:5px}.ths-watch-row b{font:12px Consolas,monospace}
+.ths-sidebar-bottom{padding:12px 15px;margin-top:auto;border-top:1px solid #2b323d;color:#788698;font-size:10px}
+.ths-preview-main{min-width:0;display:flex;flex-direction:column}
+.ths-preview-session{height:280px;display:flex;flex-direction:column;background:#10141c;padding:0 14px}
+.ths-session-tabs{height:37px;display:flex;align-items:stretch;gap:22px;border-bottom:1px solid #272e38;color:#8390a3;font-size:11px}.ths-session-tabs span{display:flex;align-items:center}.ths-session-tabs .active{border-bottom:2px solid #e94d5b;color:#eee}
+.ths-session-tabs>b{margin-left:auto;font-size:10px;font-weight:400;color:#b6a076;display:flex;align-items:center}
+.ths-preview-log{flex:1;overflow:auto;padding:13px 0;scrollbar-width:thin;scrollbar-color:#39414e transparent}
+.ths-log-row{display:flex;gap:9px;align-items:center;padding:6px 0;font:11px Consolas,"Microsoft YaHei",monospace;color:#aeb9c9;min-width:0}
+.ths-log-row time{font-size:10px;color:#5e6b7c;flex-shrink:0}.ths-log-row b{background:#233227;color:#66cf92;padding:2px 5px;font-size:10px;flex-shrink:0}.ths-log-row span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.ths-log-row em{font-style:normal;margin-left:auto;flex-shrink:0}
+.ths-preview-controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:12px;border:1px solid #353b4a;border-radius:5px;background:#1c2230;margin-bottom:12px}
+.ths-preview-controls>span{font-size:10px;color:#98a4b6;margin-right:auto}.ths-preview-controls button{font-size:11px;border-radius:4px;padding:7px 10px;border:1px solid #454e5d;background:#29303d;display:inline-flex;align-items:center;gap:5px}
+.ths-preview-controls .ths-delete{border-color:#27764a;color:#68e19c;background:#183327}.ths-preview-controls .ths-restore{border-color:#8c3e49;color:#ff8a95;background:#39212a}.ths-preview-controls .ths-external{border-color:#5b6472;color:#c6cedb;background:#262c37}
+.ths-preview-error{color:#ffb9b9;margin:0 0 8px;font-size:11px}
+.ths-preview-main{min-height:0}.ths-preview-main .ths-preview-session{height:auto;flex:1;min-height:0}
+.ths-preview-footer{height:28px;background:#151b24;border-top:1px solid #2b323d;display:flex;align-items:center;gap:25px;padding:0 13px;color:#8b98ab;font-size:10px}.ths-preview-footer span:last-child{margin-left:auto}
+@media(max-width:1050px){.ths-preview-body-grid{grid-template-columns:156px minmax(0,1fr)}.ths-market-grid,.ths-compact .ths-market-grid{grid-template-columns:minmax(0,1fr) 205px}.ths-ticker{gap:12px}.ths-ticker-brand{display:none!important}.ths-preview-top{gap:20px}.ths-toolbar{gap:2px}.ths-periods button{padding:4px 7px}}
+@media(max-width:760px){.ths-market-grid,.ths-compact .ths-market-grid{grid-template-columns:minmax(0,1fr)}.ths-details{border-left:0;border-top:1px solid var(--ths-border);max-height:340px!important}.ths-chart-stage,.ths-compact .ths-chart-stage{height:270px;flex:auto}.ths-quote{padding:12px 14px}.ths-quote>strong{font-size:26px}.ths-stat-grid{padding-bottom:10px}.ths-trades{max-height:150px}.ths-trade{min-height:34px}.ths-trade>div{flex-direction:row;align-items:center;gap:10px}.ths-trade>b{display:flex;gap:10px;align-items:center}.ths-trade small{margin:0}.ths-token-ledger{max-height:190px}.ths-preview-body-grid{grid-template-columns:1fr}.ths-preview-sidebar{display:none}.ths-preview-top{height:auto;min-height:60px;flex-wrap:wrap;padding:9px 12px;gap:7px 13px}.ths-preview-top .ths-ticker{order:2;flex-basis:100%;gap:14px}.ths-preview-logo{font-size:13px}.ths-ticker>span{gap:4px}.ths-ticker small{font-size:9px}.ths-ticker b{font-size:11px}.ths-preview-session{height:270px;padding:0 10px}.ths-preview-main .ths-chart-stage{min-height:290px}.ths-preview-controls{gap:6px;padding:9px}.ths-preview-controls>span{flex-basis:100%}.ths-preview-controls button{font-size:10px;padding:6px 8px}.ths-market-title{padding:0 10px}.ths-market-title strong{max-width:180px}.ths-symbol{font-size:9px}.ths-toolbar{padding:6px;gap:3px}.ths-toolbar select{max-width:95px}.ths-toolbar-spacer{min-width:0}.ths-ohlc{gap:6px 11px;font-size:9px;padding:6px 8px}.ths-chart-footer{gap:10px;font-size:9px}.ths-preview-footer{height:auto;min-height:28px;gap:9px;flex-wrap:wrap;padding:6px 10px}.ths-expanded{inset:8px;overflow:auto}.ths-expanded .ths-market-grid{display:block}.ths-expanded .ths-chart-stage{height:350px}.ths-slot-header .ths-ticker>span:nth-child(3){display:none}}

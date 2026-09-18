@@ -1,0 +1,32 @@
+{
+  "manifestVersion": "0.15",
+  "identity": {
+    "name": "dsh-tonghuashun",
+    "package": "dsh-tonghuashun",
+    "version": "0.3.4",
+    "description": "DeepSeek Harness project activity terminal skin: real project line-count candles, durable tool-edit statistics and token ledger, as a host half plus a web client half"
+  },
+  "facets": {
+    "host": {
+      "entry": "./dist/index.js",
+      "apiVersion": "0.15"
+    },
+    "client": {
+      "entry": "./dist/client.js",
+      "apiVersion": "0.15"
+    }
+  },
+  "requires": {
+    "contracts": []
+  },
+  "permissions": [
+    {
+      "kind": "process.spawn",
+      "reason": "调用本机 git（execFile git ls-files）取忽略规则与文件清单，从而决定哪些文件的代码行数进入统计"
+    }
+  ],
+  "subscriptions": [
+    "tools/execute",
+    "session/event"
+  ]
+}

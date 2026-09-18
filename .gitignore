@@ -1,8 +1,13 @@
 node_modules/
-lib/
-*.tsbuildinfo
-.env
-.env.*
-!.env.example
-.DS_Store
-*.log
+dist/
+work/
+artifacts/
+*.tgz
+
+# 生成物：验收夹具由预览服务首次运行时自动生成（3.7 MB），不属于项目源码
+output/acceptance-project/
+
+# 各工具的抓取缓存与临时记忆目录，不是项目内容
+.playwright-mcp/
+.video_agent/
+.workbuddy-ai/
