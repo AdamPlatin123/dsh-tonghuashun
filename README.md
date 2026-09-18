@@ -95,6 +95,10 @@ node "work/install-profile.mjs"
 
 宿主账本默认保存在 `DSH_HOME/statistics/tonghuashun/ledger.json`，未配置 DSH_HOME 时为 `~/.dsh/statistics/tonghuashun/ledger.json`。可在插件配置中设置 `dataDir`。建议备份该目录；导出按钮提供当前项目 JSON。
 
-## 授权
+## 授权与仓库沿革
 
-原始项目参考：AdamPlatin123/dsh-tonghuashun，MIT。图表使用 Lightweight Charts，Apache-2.0；保留 TradingView 图表归属链接。Lucide 图标为 ISC。依赖许可见打包的 THIRD_PARTY_NOTICES。
+MIT，Copyright (c) 2026 AdamPlatin123。仓库：<https://github.com/AdamPlatin123/dsh-tonghuashun>。
+
+2026-08-13 的初始提交是该项目的早期实现：TypeScript monorepo，`packages/client/ui-market` + `ui-skin-ths`，清单字段用的是旧名 `dshClient`。自 **0.3.4** 起该仓库内容替换为当前的单包插件实现；早期实现仍可在仓库历史（`9f55d39`）中取回。
+
+图表使用 Lightweight Charts，Apache-2.0；保留 TradingView 图表归属链接。Lucide 图标为 ISC。依赖许可见打包的 THIRD_PARTY_NOTICES。

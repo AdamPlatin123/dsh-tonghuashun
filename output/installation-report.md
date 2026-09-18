@@ -145,3 +145,16 @@
 - 截图：`output/playwright/scale-change-agent-only.png`。
 
 当前安装包更新为 0.3.4，预览仍为 <http://127.0.0.1:4317>。
+
+## 0.3.4 发布到 GitHub 仓库（2026-09-12）
+
+- 按用户确认，把当前 0.3.4 整体推送到 <https://github.com/AdamPlatin123/dsh-tonghuashun>，**替换**该仓库原有的早期实现。
+- 该仓库原本是上游早期实现：TypeScript monorepo，`packages/client/ui-market` + `ui-skin-ths`，两个包均 0.0.1，清单字段用旧名 `dshClient`，63 个文件，最后推送时间为 2026-08-13（创建当天）。其内容与本机保存的 `work/upstream/dsh-tonghuashun-master` 一致。
+- 提交 `dae87c41`，作者 `AdamPlatin123 <AdamPlatin123@users.noreply.github.com>`（与该仓库原有提交一致；本机未配置 git 身份，身份取自父仓库 `G:/_Projects` 的提交与目标仓库自身的初始提交，未凭空编造）。共 123 项文件变更：新增/修改 63、删除 60（`.gitignore`／`LICENSE`／`README.md` 为修改）。**常规快进推送，未使用 force**，旧实现仍可在历史 `9f55d39` 中取回。
+- 标签 `v0.3.4` 已推送，指向 `dae87c41`。
+- 推送内容排除生成物与工具缓存（共 64 个文件，2.75 MB，其中 28 张验收截图 2.48 MB）：`output/acceptance-project/`（预览服务首次运行自动生成的 3.69 MB 夹具）、`.playwright-mcp/`（Playwright 抓取缓存）、`.video_agent/`、`.workbuddy-ai/`。相应规则同时写入 `.gitignore`。
+- 远端核验（GitHub API）：`package.json` 版本 0.3.4、`files` 为 8 项运行时产物白名单、顶层结构与本地一致、文件总数 64、仓库语言由 TypeScript 变为 JavaScript。
+- 推送过程中 `schannel: failed to receive handshake` 出现 3 次瞬时 TLS 失败（clone 2 次、推标签 1 次），重试后均成功，与内容无关。
+- 本机用于后续推送的克隆位于 `work/release-repo`（`work/` 已被忽略，不会污染统计）。
+
+当前安装包更新为 0.3.4，仓库已同步，预览仍为 <http://127.0.0.1:4317>。
